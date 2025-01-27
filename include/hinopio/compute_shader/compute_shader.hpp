@@ -44,7 +44,7 @@ namespace hinopio
             glGenBuffers(1, &ssbo);
             glBindBuffer(GL_SHADER_STORAGE_BUFFER, ssbo);
             glBufferData(GL_SHADER_STORAGE_BUFFER, data.size() * sizeof(T), data.data(), GL_DYNAMIC_COPY);
-            glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 0, ssbo);
+            glBindBufferBase(GL_SHADER_STORAGE_BUFFER, ssbo_index++, ssbo);
             return ssbo;
         }
 
@@ -118,5 +118,7 @@ namespace hinopio
         std::string shader_code{};
 
         GLuint compute_program{};
+
+        GLuint ssbo_index{};
     };
 }

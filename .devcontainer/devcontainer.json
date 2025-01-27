@@ -19,6 +19,5 @@
   "remoteEnv": {
     "PATH": "${containerEnv:PATH}:/root/.local/bin"
   },
-  "onCreateCommand": "apt update && apt install cmake gdb pipx -y",
-  "updateContentCommand": "pipx install conan && conan config install .devcontainer/.conan/ -tf profiles"
+  "onCreateCommand": ".devcontainer/.scripts/install_tools.sh"
 }
