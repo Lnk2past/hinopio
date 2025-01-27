@@ -1,15 +1,7 @@
-I will clean this up later with some scripts/makefiles, but build an example with (for example):
+I will clean this up later with some scripts/makefiles whenever, but for now just pass paths to these to `hinopio`. Lots to automate here and lots to improve in the `hinopio` executable to configure things better.
+
+The `slang` example can be built with (assuming at root of repo):
 
 ```shell
-cd basic
-BUILD_TYPE=Debug; cmake -B build -DCMAKE_TOOLCHAIN_FILE=../../build/$BUILD_TYPE/generators/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE .
-make -C build
+slangc examples/example_slang/hello-world.slang -profile glsl_430 -target glsl -o examples/example_slang/hello-world.glsl -entry computeMain
 ```
-
-Then run:
-
-```shell
-./build/basic_orchestrator
-./build/basic_pool_orchestrator
-```
-
